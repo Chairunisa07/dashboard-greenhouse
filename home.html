@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Smart Greenhouse Gisting Permai</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <script src="js/home.js"></script>
+                <div class="text-center">
+                    <img src="img/Logogreenhouse.png" alt="greenhouse" width="100" height="100">
+                    <p>Smart Greenhouse Gisting Permai</p>
+                </div>
+                <li><a href="home.html"><img src="img/Home_fill.png"></i>Home</a></li>
+                <li><a href="about.html"><img src="img/Group_fill.png"></i>Tentang Kami</a></li>
+                
+            </ul>
+        </div>
+    </div>
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row ">
+                    <div class=" col-lg-12 ">
+                        <a href="#" class="btn" id="menu-toggle"><span
+                                class="glyphicon glyphicon-menu-hamburger"></span></a>
+                        <div class="d-flex flex-column flex-md-row justify-content-center justify-content-md-between py-5">
+                            <h1 class="text-left">Dashboard Smart Greenhouse <br> Desa Gisting Permai</h1>
+                            <!-- <div class="image-container d-none d-md-block"> -->
+                            <div class="image-container1 ">
+                                <img src="img/vector 1.png" alt="right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <!-- kotak aktuator-->
+                    <div class="container text-center">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <div class="well">
+                                    <img src="img/Group 6.png" alt="cold">
+                                    <p><b>Sistem Pendingin</b></p>
+                                    <p id="pompa_air"></p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="well">
+                                    <img src="img/Group 7.png" alt="light">
+                                    <p><b>Lampu UV</b></p>
+                                    <p id="lampu_uv"></p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="well">
+                                    <img src="img/Group 9.png" alt="date">
+                                    <p><b>Tanggal : Waktu</b></p>
+                                    <p id="datetime"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Tanki Nutrisi-->
+                    <div class="container-2 text-center mb-5">
+                        <div class="d-flex flex-column ">
+                            <script src="js/home.js"></script>
+                            <h3><strong>Tanki Nutrisi</strong></h3>
+                            <div class=" row align-items-center container-lg my-5">
+                                <div class="row text-left">
+                                    <div class="col-sm-3">
+                                        <div class="well-2">
+                                            <h4>TDS (mg/L)</h4>
+                                            <p id="tdsmeter"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="well-2">
+                                            <h4>Suhu Air (°C)</h4>
+                                            <p id="suhuair"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="well-2">
+                                            <h4>pH</h4>
+                                            <p id="sensor_ph"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--MICROCLIMATE-->
+                    <div class="container-3 text-center mb-5">
+                        <div class="d-flex flex-column ">
+                            <h3><strong>Microclimate</strong></h3>
+                            <div class=" row align-items-center container-lg my-5">
+                                <div class="row text-left">
+                                    <div class="col-sm-3">
+                                        <div class="well-2">
+                                            <h4>Arah Angin</h4>
+                                            <p id="winddirect"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="well-2">
+                                            <h4>Kecepatan Angin(m/s)</h4>
+                                            <p id="anemo"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="well-2">
+                                            <h4>Curah Hujan</h4>
+                                            <p id="raingauge"></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="well-2">
+                                            <h4>Suhu Ruangan (°C)</h4>
+                                            <p id="dht"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <!--kebutuhan tanaman-->
+                        <div class="container-3 text-center mb-5">
+                            <div class="d-flex flex-column ">
+                                <h3><strong>Kebutuhan Tanaman</strong></h3>
+                                <div class=" row align-items-center container-lg my-5">
+                                    <div class="row text-left">
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 1 (L/H)</h4>
+                                                <p id="waterflow_1"></p>
+                                                <script src="js/home.js"></script>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 2 (L/H)</h4>
+                                                <p id="waterflow_2"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 3 (L/H)</h4>
+                                                <p id="waterflow_3"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 4 (L/H)</h4>
+                                                <p id="waterflow_4"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row text-left my-3">
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 5 (L/H)</h4>
+                                                <p id="waterflow_5"></p>
+                                                <script src="js/home.js"></script>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 6 (L/H)</h4>
+                                                <p id="waterflow_6"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 7 (L/H)</h4>
+                                                <p id="waterflow_7"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 8 (L/H)</h4>
+                                                <p id="waterflow_8"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row text-left">
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 9 (L/H)</h4>
+                                                <p id="waterflow_9"></p>
+                                                <script src="js/home.js"></script>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 10 (L/H)</h4>
+                                                <p id="waterflow_10"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 11 (L/H)</h4>
+                                                <p id="waterflow_11"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                                <h4>Water Flow 12 (L/H)</h4>
+                                                <p id="waterflow_12"></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row text-left my-3">
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                              <h4>Soil Moisture 1 (%)</h4>
+                                              <p id="soilmoisture_1"></p>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                            <div class="well-2">
+                                              <h4>Soil Moisture 2 (%)</h4>
+                                              <p id="soilmoisture_2"></p>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                            <div class="well-2">
+                                              <h4>Soil Moisture 3 (%)</h4>
+                                              <p id="soilmoisture_3"></p>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                            <div class="well-2">
+                                              <h4>Sensor Berat (gr)</h4>
+                                              <p id="weight"></p>
+                                            </div>
+                                          </div>
+                                    </div>
+                                    <div class="row text-left my-3">
+                                        <div class="col-sm-3">
+                                            <div class="well-2">
+                                              <h4>Infrared 1 (°C)</h4>
+                                              <p id="infrared_1"></p>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                            <div class="well-2">
+                                              <h4>Infrared 2 (°C)</h4>
+                                              <p id="infrared_2"></p>
+                                            </div>
+                                          </div>
+                                    </div>                                      
+                                </div>
+                            </div>
+                        </div>
+            
+                        <script src="js/home.js"></script>
+                        <!-- Lanjutkan dengan menambahkan elemen tabel lainnya sesuai kebutuhan Anda -->
+                        <div id="table-container">
+                          <table id="realtime-table">
+                            <table class="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>No</th>
+                                <th>Waktu</th>
+                                <th>PH (pH)</th>
+                                <th>TDS (mg/L) </th>
+                                <th>Suhu Air(°C)</th>
+                                <th>Arah Angin (°)</th>
+                                <th>Kecepatan Angin (m/s)</th>
+                                <th>Infrared 1 (°C)</th>
+                                <th>Infrared 2 (°C)</th>
+                                <th>Sensor Berat (gr)</th>
+                                <th>Waterflow 1 (L/H)</th>
+                                <th>Waterflow 2 (L/H)</th>
+                                <th>Waterflow 3 (L/H)</th>
+                                <th>Waterflow 4 (L/H)</th>
+                                <th>Waterflow 5 (L/H)</th>
+                                <th>Waterflow 6 (L/H)</th>
+                                <th>Waterflow 7 (L/H)</th>
+                                <th>Waterflow 8 (L/H)</th>
+                                <th>Waterflow 9  (L/H)</th>
+                                <th>Waterflow 10 (L/H)</th>
+                                <th>Waterflow 11 (L/H)</th>
+                                <th>Waterflow 12 (L/H)</th>
+                                <th>Soil Moisture 1 (%)</th>
+                                <th>Soil Moisture 2 (%)</th>
+                                <th>Soil Moisture 3 (%)</th>
+                                <th>Suhu Ruangan(°C)</th>
+                                <th>Curah Hujan</th>
+                              </tr>
+                            </thead>
+                            <tbody id="data-body">
+                              <!-- Data akan ditambahkan ke sini secara dinamis -->
+                            </tbody>
+                            </table>
+                          </table> 
+                        </div>
+
+<!-- Formulir untuk memilih interval -->
+<div class="container-5-lg my-5">
+    <!-- Data Grafik Tabel -->
+    <h2 class="Judul text-center" id="judul_grafik"><b>Grafik</b></h2>
+    <script src="js/home.js"></script>
+    <div class="chart-container">
+    <!-- Suhu PH -->
+    <div class="chart">
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- TDS SENSOR  -->
+    <div class="chart">
+        <canvas id="ChartSuhuDasar"></canvas>
+    </div>
+    <!-- Suhu Air -->
+    <div class="chart">
+        <canvas id="Chartsuhuair"></canvas>
+    </div>
+    <!-- Rain Gauge -->
+    <div class="chart">
+        <canvas id="Chartraingauge"></canvas>
+    </div>
+    <!-- Arah Angin -->
+    <div class="chart">
+        <canvas id="Chartwinddirect"></canvas>
+    </div>
+    <!-- Anemo -->
+    <div class="chart">
+        <canvas id="Chartanemo"></canvas>
+    </div>
+    <!-- Infrared -->
+    <div class="chart">
+        <canvas id="Chartinfrared"></canvas>
+    </div>
+    <!-- Weight --->
+    <div class="chart">
+        <canvas id="Chartberat"></canvas>
+    </div>
+    <!-- Suhu Ruangan -->
+    <div class="chart">
+        <canvas id="Chartsuhuruangan"></canvas>
+    </div>
+    <!-- Soil Moisture -->
+    <div class="chart">
+    <canvas id="Chartsoil"></canvas>
+    </div>
+    <!-- Waterflow -->
+    <div class="chart">
+    <canvas id="Chartwaterflow"></canvas>
+    </div>
+</div>
+                                
+                                
+</body>

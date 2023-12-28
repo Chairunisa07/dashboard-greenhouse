@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Sidebar */
+#sidebar-wrapper{
+    z-index:1;
+    position: absolute;
+    width:0;
+    height:100%;
+    overflow-y:hidden;
+    background: #88AB8E;
+    opacity:0.9;
+    transition:all .5s;
+    display:flex;
+    align-items:center;
+  }
+   
+  .sidebar-nav .text-center {
+    color: #FFF;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-align: center;
+  }
+
+  .sidebar-nav .center-wrapper{
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Main Content */
+  #page-content-wrapper{
+    width: 100%;	
+    position: absolute;
+    padding:15px;
+    transition:all .5s;
+  }
+  
+  #menu-toggle{
+      transition:all .3s;
+      font-size:2em;
+  }
+  /* Change the width of the sidebar to display it*/
+  #wrapper.menuDisplayed #sidebar-wrapper{
+    width:250px;
+  }
+  
+  #wrapper.menuDisplayed #page-content-wrapper{
+    padding-left:250px;
+  }
+  
+  /* Sidebar styling */
+  .sidebar-nav{
+    padding:0;
+    list-style:none; 
+    transition:all .5s;
+    width:100%;
+    text-align:left;
+  }
+  
+  .sidebar-nav li{
+    line-height:40px;  
+      width:100%;
+      transition:all .3s;
+      padding:10px;
+  }
+  
+  .sidebar-nav li a{
+    display:block;
+    text-decoration:none;
+    color:#ddd;
+  }
+  
+  .sidebar-nav li:hover{
+    background:#163020;
+  }
+  
+  .col-lg-12{
+    /* height: 195px; */
+    flex-shrink: 0;
+    border-radius: 16px;
+    background: #C3E2C2;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); 
+  }
+
+  .col-lg-12 .text-left{
+    color: #000000;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    display: flex;
+  }
+
+  .col-lg-12 .image-container{
+    position: absolute;
+    top: 50%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+  }
+
+
+/* css blok pendingin */
+.container {
+    width: 100%;
+    max-width: auto;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+    padding: 20px;
+}
+
+.well {
+    background-color: #3894D9;
+    border: 1px solid #3894D9;
+    border-radius: 46px;
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.well img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.well h2 {
+    margin-top: 16px;
+}
+
+.container-2{
+    width: 100%;
+    padding: 10px;
+    max-width: auto;
+    margin: auto;
+    background-color: #C3E2C2;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.well-2 {
+    padding: 15px;
+    border-radius: 6px;
+    background: #D9D9D9;
+    
+  }
+
+  .container-3{
+    width: 100%;
+    padding: 10px;
+    max-width: auto;
+    margin: auto;
+    background-color: #C3E2C2;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.container-4{
+    width: 100%;
+    padding: 10px;
+    max-width: auto;
+    margin: auto;
+    background-color: #C3E2C2;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+/*tabel*/
+#table-container {
+    width: 100%;
+    overflow: auto;
+    margin-top: 20px;
+    background-color: #C3E2C2;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 10px;
+  }
+
+  .container-5-lg{
+    width: 100%;
+    padding: 10px;
+    max-width: auto;
+    margin: auto;
+    background-color: #C3E2C2;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Form Styling */
+.form-container {
+    margin-top: 20px;
+  }
+  
+  select {
+    color: #fffefe;
+    font-size: medium;
+    padding: 10px;
+    border: 1px solid #65B741;
+    background-color: #1c450a;
+  }
+  
+  /* Content Styling */
+  .content {
+    padding: 16px;
+    height: calc(100vh - 40px);
+  }
+  
+  /* Footer Styling */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #65B741;
+    color: #ffffff;
+  }
+  
+  .chart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px auto;
+  }
+  
+  .chart {
+    height: 300px;
+    flex: 1;
+    box-sizing: border-box;
+    margin: 5px;
+    background-color: rgb(255, 255, 255);
+  }
+  
+/* Styles for small screens (max-width: 767px) */
+@media (max-width: 767px) {
+  /* Adjust page content width and padding */
+  #page-content-wrapper {
+      padding: 20px;
+  }
+
+  /* Center align text in the header */
+  .d-flex.flex-row {
+      text-align: center;
+  }
+
+  /* Adjust font size for the heading */
+  h1.text-left {
+      font-size: 18px;
+  }
+
+  /* Adjust margin for the image in the header */
+  .image-container {
+      margin-top: 10px;
+  }
+
+  /* Style for the well elements in the container */
+  .well {
+      margin-bottom: 20px;
+  }
+
+  /* Center align text in the wells */
+  .well p {
+      text-align: center;
+  }
+}
