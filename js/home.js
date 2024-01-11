@@ -8,7 +8,7 @@ $(document).ready(function(){
   
 //data
     function fetchData() {
-    fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+    fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
       .then(response => {
         if (!response.ok) {
           throw new Error('HTTP error! Status: ${response.status}');
@@ -23,8 +23,8 @@ $(document).ready(function(){
           // Update tampilan dengan data yang diterima dari server
           console.log(result);
           document.getElementById('sensor_ph').innerText = `pH ${result.ph}`;
-          document.getElementById('pompa_air').innerText = result.pompaair;
-          document.getElementById('lampu_uv').innerText = result.lampuuv;
+          document.getElementById('coolingsystem').innerText = result.coolingsystem;
+          document.getElementById('uvlampu').innerText = result.uvlampu;
           document.getElementById('tdsmeter').innerText = result.tdsmeter;
           document.getElementById('suhuair').innerText = result.suhuair;
           document.getElementById('winddirect').innerText = result.winddirect;
@@ -43,7 +43,10 @@ $(document).ready(function(){
           document.getElementById('soilmoisture_1').innerText = result.soilmoisture_1;
           document.getElementById('soilmoisture_2').innerText = result.soilmoisture_2;
           document.getElementById('soilmoisture_3').innerText = result.soilmoisture_3;
-          document.getElementById('weight').innerText = result.weight;
+          document.getElementById('weight_1').innerText = result.weight_1;
+          document.getElementById('weight_2').innerText = result.weight_2;
+          document.getElementById('weight_3').innerText = result.weight_3;
+          document.getElementById('weight_4').innerText = result.weight_4;
           document.getElementById('infrared_1').innerText = result.infrared_1;
           document.getElementById('infrared_2').innerText = result.infrared_2;
           document.getElementById('anemo').innerText = result.anemo;
@@ -79,7 +82,10 @@ $(document).ready(function(){
   var soilmoisture1Box = document.getElementById('soilmoisture_1');
   var soilmoisture2Box = document.getElementById('soilmoisture_2');
   var soilmoisture3Box = document.getElementById('soilmoisture_3');
-  var weightBox = document.getElementById('weight');
+  var weightBox1 = document.getElementById('weight_1');
+  var weightBox2 = document.getElementById('weight_2');
+  var weightBox3 = document.getElementById('weight_3');
+  var weightBox4 = document.getElementById('weight_4');
   var infrared1Box = document.getElementById('infrared_1');
   var infrared2Box = document.getElementById('infrared_2');
   var anemoBox = document.getElementById('anemo');
@@ -89,7 +95,7 @@ $(document).ready(function(){
   
   fetchData();
   // Fungsi untuk mengubah warna kotak dan teks berdasarkan nilai pH
-  fetch(`https://vps.isi-net.org:5000/GetDataGistingNew`)
+  fetch(`https://vps.isi-net.org:5001/GetDataGistingNew`)
       .then(response => response.json())
       .then(data => {
           // Ambil nilai pH terakhir dari data
@@ -112,7 +118,10 @@ $(document).ready(function(){
           var lastsoilmoisture1Value = data.result[0].soilmoisture_1;
           var lastsoilmoisture2Value = data.result[0].soilmoisture_2;
           var lastsoilmoisture3Value = data.result[0].soilmoisture_3;
-          var lastweightValue = data.result[0].weight;
+          var lastweight1Value = data.result[0].weight_1;
+          var lastweight2Value = data.result[0].weight_2;
+          var lastweight3Value = data.result[0].weight_3;
+          var lastweight4Value = data.result[0].weight_4;
           var lastinfrared1Value = data.result[0].infrared_1;
           var lastinfrared2Value = data.result[0].infrared_2;
           var lastanemoValue = data.result[0].anemo;
@@ -137,7 +146,10 @@ $(document).ready(function(){
           updatesoilmoisture1Box(lastsoilmoisture1Value, soilmoisture1Box);
           updatesoilmoisture2Box(lastsoilmoisture2Value, soilmoisture2Box);
           updatesoilmoisture3Box(lastsoilmoisture3Value, soilmoisture3Box);
-          updateweightBox(lastweightValue, weightBox);
+          updateweight1Box(lastweight1Value, weight1Box);
+          updateweight2Box(lastweight2Value, weight2Box);
+          updateweight3Box(lastweight3Value, weight3Box);
+          updateweight4Box(lastweight4Value, weight4Box);
           updateinfrared1Box(lastinfrared1Value, infrared1Box);
           updateinfrared2Box(lastinfrared2Value, infrared2Box);
           updateanemoBox(lastanemoValue, anemoBox);
@@ -157,7 +169,7 @@ $(document).ready(function(){
       }
       
       function updateTdsBox(tdsValue, box) {
-        if (tdsValue < 0 || tdsValue > 100) {
+        if (tdsValue < 0 || tdsValue > 500) {
           box.parentElement.style.backgroundColor = '#FF0303';
           box.innerHTML = tdsValue.toFixed(2);
         } else {
@@ -300,13 +312,40 @@ $(document).ready(function(){
           box.innerHTML = soilmoisture2Value.toFixed(2);
         }
       }
-      function updateweightBox(weightValue, box) {
-        if (weightValue < 0 || weightValue > 10000) {
+      function updateweight1Box(weight1Value, box) {
+        if (weight1Value < 0 || weight1Value > 10000) {
           box.parentElement.style.backgroundColor = '#FF0303';
-          box.innerHTML = weightValue.toFixed(2);
+          box.innerHTML = weight1Value.toFixed(2);
         } else {
           box.parentElement.style.backgroundColor = '#D9D9D9';
-          box.innerHTML = weightValue.toFixed(2);
+          box.innerHTML = weight1Value.toFixed(2);
+        }
+      }
+      function updateweight2Box(weight2Value, box) {
+        if (weight2Value < 0 || weight2Value > 10000) {
+          box.parentElement.style.backgroundColor = '#FF0303';
+          box.innerHTML = weight2Value.toFixed(2);
+        } else {
+          box.parentElement.style.backgroundColor = '#D9D9D9';
+          box.innerHTML = weight2Value.toFixed(2);
+        }
+      }
+      function updateweight3Box(weight3Value, box) {
+        if (weight3Value < 0 || weight3Value > 10000) {
+          box.parentElement.style.backgroundColor = '#FF0303';
+          box.innerHTML = weight3Value.toFixed(2);
+        } else {
+          box.parentElement.style.backgroundColor = '#D9D9D9';
+          box.innerHTML = weight3Value.toFixed(2);
+        }
+      }
+      function updateweight4Box(weight4Value, box) {
+        if (weight4Value < 0 || weight4Value > 10000) {
+          box.parentElement.style.backgroundColor = '#FF0303';
+          box.innerHTML = weight4Value.toFixed(2);
+        } else {
+          box.parentElement.style.backgroundColor = '#D9D9D9';
+          box.innerHTML = weight4Value.toFixed(2);
         }
       }
       function updateinfrared1Box(infrared1Value, box) {
@@ -332,7 +371,7 @@ $(document).ready(function(){
           box.parentElement.style.backgroundColor = '#FF0303';
           box.innerHTML = anemoValue.toFixed(2);
         } else {
-          box.parentElement.style.backgroundColor = '##D9D9D9';
+          box.parentElement.style.backgroundColor = '#D9D9D9';
           box.innerHTML = anemoValue.toFixed(2);
         }
       }
@@ -355,17 +394,17 @@ $(document).ready(function(){
         }
       }
   
-    function updatePompaBox(elementId, value) {
-      var box = document.getElementById(elementId);
-      var status = (value === 1) ? 'Aktif' : 'Tidak Aktif';
-      var backgroundColor = (value === 1) ? '#61A3BA' : '#ffffff';
-      box.parentElement.style.backgroundColor = backgroundColor;
-      box.innerHTML = status;
-    }
-    function updatelampuuvBox(elementId, value) {
-      var box = document.getElementById(elementId);
-      var status = (value === 1) ? 'Aktif' : 'Tidak Aktif';
-      var backgroundColor = (value === 1) ? '#61A3BA' : '#ffffff';
+      function updatecoolingsystemBox(coolingsystem, value) {
+        var box = document.getElementById(coolingsystem);
+        var status = (value > 1) ? 'Aktif' : 'Tidak Aktif';
+        var backgroundColor = (value > 1) ? '#61A3BA' : '#FF0303';
+        box.parentElement.style.backgroundColor = backgroundColor;
+        box.innerHTML = status;
+      }
+    function updateuvlampuBox(uvlampu, value) {
+      var box = document.getElementById(uvlampu);
+      var status = (value > 1) ? 'Aktif' : 'Tidak Aktif';
+      var backgroundColor = (value > 1) ? '#61A3BA' : '#FF0303';
       box.parentElement.style.backgroundColor = backgroundColor;
       box.innerHTML = status;
     }
@@ -377,7 +416,7 @@ $(document).ready(function(){
 
       }
   
-      fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+      fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
@@ -387,14 +426,14 @@ $(document).ready(function(){
     .then(data => {
       // Ambil nilai pompa air terakhir dari data
       var lastPompaValue = data.result[0].pompaair;
-      updatePompaBox('pompa_air', lastPompaValue);
+      updatecoolingsystemBox('coolingsystem', lastPompaValue);
     })
     .catch(error => console.error('Error:', error));
   // POPMA AIR
   
   
   function fetchDataAndProcess() {
-    fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+    fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -402,10 +441,10 @@ $(document).ready(function(){
         return response.json();
       })
       .then(data => {
-        var lastPompaValue = data.result[0].pompaair;
-        var lastlampuuvValue = data.result[0].lampuuv;
-        updatePompaBox('pompa_air', lastPompaValue);
-        updatelampuuvBox('lampu_uv', lastlampuuvValue);
+        var lastcoolingsystemValue = data.result[0].coolingsystem;
+        var lastuvlampuValue = data.result[0].uvlampu;
+        updatecoolingsystemBox('coolingsystem', lastcoolingsystemValue);
+        updateuvlampuBox('uvlampu', lastuvlampuValue);
       })
       .catch(error => console.error('Error:', error));
   }
@@ -480,7 +519,7 @@ $(document).ready(function(){
   
       // Gunakan Promise.all untuk melakukan fetch request secara bersamaan
       function fetchTableData() {
-        fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+        fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
             .then(response => response.json())
             .then(dataTopic1 => {
                 const dataBody = document.getElementById('data-body');
@@ -498,7 +537,10 @@ $(document).ready(function(){
                         <td>${item.anemo}</td>
                         <td>${item.infrared_1}</td>
                         <td>${item.infrared_2}</td>
-                        <td>${item.weight}</td>
+                        <td>${item.weight_1}</td>
+                        <td>${item.weight_2}</td>
+                        <td>${item.weight_3}</td>
+                        <td>${item.weight_4}</td>
                         <td>${item.waterflow_1}</td>
                         <td>${item.waterflow_2}</td>
                         <td>${item.waterflow_3}</td>
@@ -530,7 +572,7 @@ $(document).ready(function(){
     setInterval(fetchTableData, 60000);
   
  // Grafik Suhu PH
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
     const result = data.result;
@@ -557,7 +599,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 
 
 // // // Grafik TDS
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
     const result = data.result;
@@ -583,7 +625,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // //   GRAFIK SUHU AIR
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
     const result = data.result;
@@ -609,7 +651,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // //   GRAFIK RAIN GAUGE
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
@@ -635,7 +677,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // // // Grafik Wind direction
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
@@ -661,7 +703,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // // GRAFIK WIND SPEED
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
@@ -687,33 +729,55 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // // GRAFIK BERAT
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
   const latestData = result.slice(Math.max(result.length - 60, 0)); // Ambil 60 data terbaru
 
   const labels = latestData.map(item => item.datetime).reverse();
-  const weight = latestData.map(item => item.weight).reverse();
+  const weight_1 = latestData.map(item => item.weight_1).reverse();
+  const weight_2 = latestData.map(item => item.weight_2).reverse();
+  const weight_3 = latestData.map(item => item.weight_3).reverse();
+  const weight_4 = latestData.map(item => item.weight_4).reverse();
 
   const ctx = document.getElementById('Chartberat').getContext('2d');
   new Chart(ctx, {
-      type: 'line',
-      data: {
-          labels: labels,
-          datasets: [{
-              label: 'Sensor Berat (gr)',
-              data: weight,
-              borderColor: '#FFB534',
+    type: 'line',
+    data: {
+        labels: labels, // Gunakan labels yang telah didefinisikan
+        datasets: [
+            {
+                label: 'Sensor Berat 1 (gr)',
+                data: weight_1,
+                borderColor: '#AC87C5',
+                tension: 0.1
+            },
+            {
+                label: 'Sensor Berat 2 (gr)',
+                data: weight_2,
+                borderColor: '#BF3131',
+                tension: 0.1
+            },
+            {
+                label: 'Sensor Berat 3 (gr)',
+                data: weight_3,
+                borderColor: '#994D1C',
+                tension: 0.1
+            },
+            {
+              label: 'Sensor Berat 4 (gr)',
+              data: weight_4,
+              borderColor: '#6C5F5B',
               tension: 0.1
-          }]
-      }
+          },
+      ]}
   });
 })
 .catch(error => console.error('Error:', error));
 
 //GRAFIK WaterFlow
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
@@ -819,7 +883,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // // Grafik Suhu Ruangan
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
@@ -845,7 +909,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // // GRAFIK SOIL MOISTURE
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
@@ -887,7 +951,7 @@ fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
 .catch(error => console.error('Error:', error));
 
 // Grafik INFRARED
-fetch('https://vps.isi-net.org:5000/GetDataGistingNew')
+fetch('https://vps.isi-net.org:5001/GetDataGistingNew')
 .then(response => response.json())
 .then(data => {
   const result = data.result;
