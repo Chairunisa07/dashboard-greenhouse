@@ -23,8 +23,8 @@ $(document).ready(function(){
         // Update tampilan dengan data yang diterima dari server
         console.log(result);
         document.getElementById('sensor_ph').innerText = `pH ${result.ph}`;
-        document.getElementById('coolingsystem').innerText = result.coolingsystem;
-        document.getElementById('uvlampu').innerText = result.uvlampu;
+        //document.getElementById('coolingsystem').innerText = result.coolingsystem;
+        //document.getElementById('uvlampu').innerText = result.uvlampu;
         document.getElementById('tdsmeter').innerText = result.tdsmeter;
         document.getElementById('suhuair').innerText = result.suhuair;
         document.getElementById('winddirect').innerText = result.winddirect;
@@ -394,20 +394,20 @@ fetch(`https://vps.isi-net.org:5001/GetDataGistingNew`)
       }
     }
 
-    function updatecoolingsystemBox(coolingsystem, value) {
-      var box = document.getElementById(coolingsystem);
-      var status = (value > 1) ? 'Aktif' : 'Tidak Aktif';
-      var backgroundColor = (value > 1) ? '#61A3BA' : '#E53B35';
-      box.parentElement.style.backgroundColor = backgroundColor;
-      box.innerHTML = status;
-    }
-  function updateuvlampuBox(uvlampu, value) {
-    var box = document.getElementById(uvlampu);
-    var status = (value > 1) ? 'Aktif' : 'Tidak Aktif';
-    var backgroundColor = (value > 1) ? '#61A3BA' : '#E53B35';
-    box.parentElement.style.backgroundColor = backgroundColor;
-    box.innerHTML = status;
-  }
+  //   function updatecoolingsystemBox(coolingsystem, value) {
+  //     var box = document.getElementById(coolingsystem);
+  //     var status = (value > 1) ? 'Aktif' : 'Tidak Aktif';
+  //     var backgroundColor = (value > 1) ? '#61A3BA' : '#E53B35';
+  //     box.parentElement.style.backgroundColor = backgroundColor;
+  //     box.innerHTML = status;
+  //   }
+  // function updateuvlampuBox(uvlampu, value) {
+  //   var box = document.getElementById(uvlampu);
+  //   var status = (value > 1) ? 'Aktif' : 'Tidak Aktif';
+  //   var backgroundColor = (value > 1) ? '#61A3BA' : '#E53B35';
+  //   box.parentElement.style.backgroundColor = backgroundColor;
+  //   box.innerHTML = status;
+  //}
   function updatedateBox(elementId, value) {
       // Menggunakan method toLocaleString() untuk format tanggal dan waktu lokal
       var sekarang = new Date();
